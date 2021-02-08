@@ -14,8 +14,8 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y make unrar autoconf automake libtool libtool-bin gcc g++ gperf \
-          flex bison texinfo gawk ncurses-dev libexpat1-dev python3 sed python3-serial \
-          python3-dev srecord bc git help2man unzip bzip2 python-is-python3
+          flex bison texinfo gawk ncurses-dev libexpat1-dev python sed python-serial \
+          python-dev srecord bc git help2man unzip bzip2
     - name: Compile
       working-directory: libraries
       run: |

@@ -17,7 +17,6 @@ jobs:
     - name: Compile
       run: |
         pwd
-        ls -al
-        ls -al ..
+        ls -al $GITHUB_WORKSPACE
         python --version
-        env
+        git clone -b master https://github.com/SmingHub/Sming.git

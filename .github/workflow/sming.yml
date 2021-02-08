@@ -1,0 +1,25 @@
+name: Compile Sming example
+
+on: [push, pull_request]
+jobs:
+  Basic_Blink:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@master
+    - name: Create build directory
+      run: mkdir module1/homework/fibonacci/build
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y make unrar autoconf automake libtool libtool-bin gcc g++ gperf \
+          flex bison texinfo gawk ncurses-dev libexpat1-dev python3 sed python3-serial \
+          python3-dev srecord bc git help2man unzip bzip2 python-is-python3
+    - name: Compile
+      working-directory: module1/homework/fibonacci/build
+      run: |
+        pwd
+        ls -al
+        python --version
+        ls -al /home/runner/work/cpp-fundamentals/cpp-fundamentals/module1/homework/fibonacci/build
+    

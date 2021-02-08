@@ -17,10 +17,10 @@ jobs:
     - name: Install Sming library
       run: |
         git clone -b master https://github.com/SmingHub/Sming.git
-        set-env SMING_HOME=$GITHUB_WORKSPACE/Sming/Sming
+        export SMING_HOME=$GITHUB_WORKSPACE/Sming/Sming
     - name: Install ESP SDK
       run: |
-        set-env ESP_HOME="$GITHUB_WORKSPACE/esp-quick-toolchain"
+        export ESP_HOME="$GITHUB_WORKSPACE/esp-quick-toolchain"
         mkdir -p $ESP_HOME
         wget https://github.com/SmingHub/SmingTools/releases/download/1.0/x86_64-linux-gnu.xtensa-lx106-elf-e6a192b.201211.tar.gz
         tar -zxf x86_64-linux-gnu.xtensa-lx106-elf-e6a192b.201211.tar.gz -C $ESP_HOME
@@ -32,5 +32,7 @@ jobs:
         env
     - name: Build
       run: |
+        export SMING_HOME=$GITHUB_WORKSPACE/Sming/Sming
+        export ESP_HOME="$GITHUB_WORKSPACE/esp-quick-toolchain"
         cd Sming/samples/Basic_Blink
         make

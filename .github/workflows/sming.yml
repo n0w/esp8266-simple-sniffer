@@ -24,10 +24,14 @@ jobs:
         mkdir -p $ESP_HOME
         wget https://github.com/SmingHub/SmingTools/releases/download/1.0/x86_64-linux-gnu.xtensa-lx106-elf-e6a192b.201211.tar.gz
         tar -zxf x86_64-linux-gnu.xtensa-lx106-elf-e6a192b.201211.tar.gz -C $ESP_HOME
-    - name: Compile
+    - name: Checks
       run: |
         pwd
         ls -al $GITHUB_WORKSPACE
         python --version
         find esp-quick-toolchain
         find Sming
+    - name: Build
+      run: |
+        cd Sming/samples/Basic_Blink
+        make

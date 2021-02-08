@@ -20,3 +20,4 @@ jobs:
         ls -al $GITHUB_WORKSPACE
         python --version
         git clone -b master https://github.com/SmingHub/Sming.git
+        find Sming

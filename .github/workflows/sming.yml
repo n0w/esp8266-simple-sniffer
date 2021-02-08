@@ -8,8 +8,6 @@ jobs:
     steps:
     - name: Check out code
       uses: actions/checkout@master
-    - name: Create build directory
-      run: mkdir libraries
     - name: Install dependencies
       run: |
         sudo apt-get update
@@ -17,10 +15,9 @@ jobs:
           flex bison texinfo gawk ncurses-dev libexpat1-dev python sed python-serial \
           python-dev srecord bc git help2man unzip bzip2
     - name: Compile
-      working-directory: libraries
       run: |
         pwd
         ls -al
         ls -al ..
         python --version
-        
+        env

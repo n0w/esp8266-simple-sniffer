@@ -29,8 +29,7 @@ jobs:
         pwd
         ls -al $GITHUB_WORKSPACE
         python --version
-        find esp-quick-toolchain
-        find Sming
+        env
     - name: Build
       run: |
         cd Sming/samples/Basic_Blink
